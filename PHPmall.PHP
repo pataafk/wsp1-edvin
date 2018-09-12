@@ -7,7 +7,9 @@
  */
 
  //[kodblock med inställningar och inledande bearbetningar]
+ mb_internal_encoding("UTF-8")
  function utf8_strrev($str){
+     //namnet baklänges -se detta svart magi tills vidare!
      preg_match_all('/./us', $str, $temp_arr);
      return join('', array_reverse($temp_arr[0]));
 
@@ -65,7 +67,7 @@
         <input type="submit" value="testa namnet" />
     </p>
 <?php
-if ( $namedata) {
+if ($namedata) {
     echo <<<DATA
     <dl>
      <dt>name</dt>
