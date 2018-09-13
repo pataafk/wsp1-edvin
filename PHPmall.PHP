@@ -7,7 +7,7 @@
  */
 
  //[kodblock med inställningar och inledande bearbetningar]
- mb_internal_encoding("UTF-8")
+ mb_internal_encoding("UTF-8");
  function utf8_strrev($str){
      //namnet baklänges -se detta svart magi tills vidare!
      preg_match_all('/./us', $str, $temp_arr);
@@ -15,12 +15,12 @@
 
  }
  $submitted_name = filter_input(INPUT_POST, 'name', FILTER_UNSAFE_RAW, FILTER_FLAG_STRIP_LOW);
-
+echo "Hej" . $submitted_name;
  $namedata = false;
  if (!empty($submitted_name)) {
      $submitted_name = trim($submitted_name);
 
-     $ouput_name = htmlspecialchars($submitted_name, ENT_QUOTES);
+     $output_name = htmlspecialchars($submitted_name, ENT_QUOTES);
 
      $charcount = mb_strlen($submitted_name);
 
@@ -57,7 +57,7 @@
 </head>
 <body>
     <h1>Avsnitt 2.3: namntest</h1>
-    <form action="<?php echo $_SERVER['PHP_self']; ?>" method="post">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
      <p>
          <label for="name">vad heter du?</label>
          <input type="text" name="name" id="name"
